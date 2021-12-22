@@ -130,6 +130,12 @@ class Ui_Dialog(object):
         self.verticalLayout_2.addWidget(self.lineEdit_7)
 
         self.retranslateUi(Dialog)
+        self.horizontalSlider_3.valueChanged['int'].connect(self.Slider3changeEdit)
+        self.lineEdit.editingFinished.connect(self.EditchangeSlider3)
+        self.horizontalSlider.valueChanged['int'].connect(self.SliderchangeEdit2)
+        self.lineEdit_2.editingFinished.connect(self.Edit2changeSlider)
+        self.horizontalSlider_6.valueChanged['int'].connect(self.Slider6changeEdit3)
+        self.lineEdit_3.editingFinished.connect(self.Edit3changeSlider6)
         self.horizontalSlider_5.valueChanged['int'].connect(self.Slider5changeEdit4)
         self.lineEdit_4.editingFinished.connect(self.Edit4changeSlider5)
         self.horizontalSlider_4.valueChanged['int'].connect(self.Slider4changeEdit5)
@@ -139,6 +145,27 @@ class Ui_Dialog(object):
         self.horizontalSlider_2.valueChanged['int'].connect(self.Slider2changeEdit7)
         self.lineEdit_7.editingFinished.connect(self.Edit7changeSlider2)
         # QtCore.QMetaObject.connectSlotsByName(Dialog)
+    def Slider3changeEdit(self, position):
+        self.lineEdit.setText(str(position/100.0))
+    def EditchangeSlider3(self):
+        fval = float(self.lineEdit.text())*100 
+        fval = fval if fval <= 2999 else 2999
+        fval = fval if fval >=0 else 0
+        self.horizontalSlider_3.setValue(int(fval))
+    def SliderchangeEdit2(self, position):
+        self.lineEdit_2.setText(str(position/100.0))
+    def Edit2changeSlider(self):
+        fval = float(self.lineEdit_2.text())*100 
+        fval = fval if fval <= 2999 else 2999
+        fval = fval if fval >=0 else 0
+        self.horizontalSlider.setValue(int(fval))
+    def Slider6changeEdit3(self, position):
+        self.lineEdit_3.setText(str(position/100.0))
+    def Edit3changeSlider6(self):
+        fval = float(self.lineEdit_3.text())*100 
+        fval = fval if fval <= 2999 else 2999
+        fval = fval if fval >=0 else 0
+        self.horizontalSlider_6.setValue(int(fval))
     def Slider5changeEdit4(self, position):
         self.lineEdit_4.setText(str(position/100.0))
     def Edit4changeSlider5(self):
